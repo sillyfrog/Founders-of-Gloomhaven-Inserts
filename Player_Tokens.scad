@@ -1,6 +1,6 @@
 include <consts.scad>;
 
-
+echo("Player Tokens box (WxDxH):", TOKEN_BOX_W, TOKEN_BOX_D, TOKEN_BOX_H);
 
 difference() {
     union() {
