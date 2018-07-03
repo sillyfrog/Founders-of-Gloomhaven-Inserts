@@ -4,12 +4,19 @@ include <consts.scad>;
 echo("Tier 3 box (WxDxH):", TIER3_W, TIER3_D, TIER3_H);
 
 difference() {
-    cube([TIER3_W, TIER3_D, TIER3_H]);
+    union() {
+        cube([TIER3_W, TIER3_D, TIER3_H]);
+        translate([TIER3_W/2, 0, TIER3_H]) rotate([-90, 0, 0]) cylinder(d=CLIP_DIA, h=WALL);
+        translate([TIER3_W/3, TIER3_D, TIER3_H]) rotate([90, 0, 0]) cylinder(d=CLIP_DIA, h=WALL);
+        translate([TIER3_W/3*2, TIER3_D, TIER3_H]) rotate([90, 0, 0]) cylinder(d=CLIP_DIA, h=WALL);
+        translate([0, TIER3_D/2, TIER3_H]) rotate([0, 90, 0]) cylinder(d=CLIP_DIA, h=WALL);
+        translate([TIER3_W, TIER3_D/2, TIER3_H]) rotate([0, -90, 0]) cylinder(d=CLIP_DIA, h=WALL);
+    }
 
     #translate([WALL, WALL, R_WEAPONS_W_SQ*cos(R_WEAPONS_ANG)+FLOOR]) rotate([0, 15, 0]) cube([R_WEAPONS_W_SQ, R_STACK, R_WEAPONS_H_SQ]);
     translate([WALL, WALL+R_STACK, FLOOR]) rotate([90, 0, 0]) linear_extrude(height=R_STACK) polygon([[0, R_WEAPONS_W_SQ*cos(R_WEAPONS_ANG)], [R_WEAPONS_W, R_WEAPONS_H_SQ*sin(R_WEAPONS_ANG)], [R_WEAPONS_W, R_WEAPONS_H], [0, R_WEAPONS_H]]);
 
-    #translate([WALL + R_CLOTH_W/2, WALL + R_STACK*1 + THIN_WALL*1, FLOOR]) cube([R_CLOTH_W, R_STACK, R_CLOTH_H]);
+    #translate([TIER3_W - WALL - R_CLOTH_W - R_1/2, WALL + R_STACK*1 + THIN_WALL*1, FLOOR]) cube([R_CLOTH_W, R_STACK, R_CLOTH_H]);
 
     #translate([TIER3_W - WALL - R_LABOR_W, WALL + R_STACK*2 + THIN_WALL*2, FLOOR]) cube([R_GOV_W, R_STACK, R_GOV_H]);
 
