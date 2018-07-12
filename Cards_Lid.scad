@@ -1,6 +1,6 @@
 include <consts.scad>;
 
-// To prevent lift, only cover the voting tiles, as the cards are held with the lid
+// To prevent lift, only cover the voting tiles, as the cards are held with the carton lid
 
 
 echo("Card box lid (WxDxH):", CARD_BOX_LID_W, CARD_BOX_LID_D, CARD_BOX_LID_H);
