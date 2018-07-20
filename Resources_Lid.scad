@@ -9,7 +9,7 @@ difference() {
     }
 
     #translate([WALL, WALL, RESOURCE_LID_H - SQUARE_TILE/2]) cube([RESOURCE_LID_W - WALL*2, SQUARE_TILE, SQUARE_TILE]);
-    #translate([RESOURCE_LID_W - WALL - FIRST_PLAYER_D, WALL, RESOURCE_LID_H - FIRST_PLAYER_H/2 ]) cube([FIRST_PLAYER_D, FIRST_PLAYER_W, FIRST_PLAYER_H]);
+    #translate([WALL, WALL, RESOURCE_LID_H - FIRST_PLAYER_H/2 ]) cube([FIRST_PLAYER_D, FIRST_PLAYER_W, FIRST_PLAYER_H]);
 
     translate([RESOURCE_LID_W/2, 0, RESOURCE_LID_H]) rotate([-90, 0, 0]) cylinder(d=CLIP_DIA, h=WALL);
     translate([RESOURCE_LID_W/3, RESOURCE_BOX_D, RESOURCE_LID_H]) rotate([90, 0, 0]) cylinder(d=CLIP_DIA, h=WALL);
