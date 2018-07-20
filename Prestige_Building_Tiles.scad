@@ -11,7 +11,9 @@ difference() {
         translate([PRESTIGE_W/3, PRESTIGE_D, PRESTIGE_H]) rotate([90, 0, 0]) cylinder(d=CLIP_DIA, h=WALL);
         translate([PRESTIGE_W/3*2, PRESTIGE_D, PRESTIGE_H]) rotate([90, 0, 0]) cylinder(d=CLIP_DIA, h=WALL);
         translate([0, PRESTIGE_D/3*2, PRESTIGE_H]) rotate([0, 90, 0]) cylinder(d=CLIP_DIA, h=WALL);
+        translate([0, PRESTIGE_D/3, PRESTIGE_H]) rotate([0, 90, 0]) cylinder(d=CLIP_DIA, h=WALL);
         translate([PRESTIGE_W, PRESTIGE_D/3*2, PRESTIGE_H]) rotate([0, -90, 0]) cylinder(d=CLIP_DIA, h=WALL);
+        translate([PRESTIGE_W, PRESTIGE_D/3, PRESTIGE_H]) rotate([0, -90, 0]) cylinder(d=CLIP_DIA, h=WALL);
     }
 
     #translate([PRESTIGE_W/2 - R_PREST_1x3_W/2, COMPLETION_MARKER_W + WALL*2 + THIN_WALL*0, PRESTIGE_H - R_PREST_1x3_H/2]) 
