@@ -28,7 +28,7 @@ VOTING_STACK = 28; // 26.17, 12 tokens
 // Discs
 CLAIM_DIA = 13; // 11.83
 CLAIM_H = 4; //3.78
-CLAIM_STACK = 58; // 55.58
+CLAIM_STACK = 59; // 55.58
 
 // TOKEN_STACK = 21; // 19.56, 9 tokens
 TOKEN_STACK = 14; // 13.02, 6 square tokens
