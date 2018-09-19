@@ -14,15 +14,14 @@ difference() {
     translate([WALL*1+CLAIM_DIA/4, WALL+CLAIM_DIA/4, 0]) cube([CLAIM_DIA/2, TOKEN_BOX_D-WALL*2-CLAIM_DIA/2, TOKEN_BOX_LID_H]); // Go the full length of the container.
     //rotate([-90, 00, 0]) cylinder(d=CLAIM_DIA, h=TOKEN_BOX_D-WALL*2);
 
-    translate([TOKEN_BOX_W/2, 0, TOKEN_BOX_H]) rotate([-90, 0, 0]) cylinder(d=CLIP_DIA, h=WALL);
-    translate([TOKEN_BOX_W/3, TOKEN_BOX_D, TOKEN_BOX_H]) rotate([90, 0, 0]) cylinder(d=CLIP_DIA, h=WALL*1.5);
-    translate([TOKEN_BOX_W/3*2, TOKEN_BOX_D, TOKEN_BOX_H]) rotate([90, 0, 0]) cylinder(d=CLIP_DIA, h=WALL*1.5);
-    translate([0, TOKEN_BOX_D/2, TOKEN_BOX_H]) rotate([0, 90, 0]) cylinder(d=CLIP_DIA, h=CLAIM_DIA);
-    translate([TOKEN_BOX_W, TOKEN_BOX_D/2, TOKEN_BOX_H]) rotate([0, -90, 0]) cylinder(d=CLIP_DIA, h=WALL);
-
-
     translate([TOKEN_BOX_W/2, 0.4, 2]) rotate([90,180,0]) linear_extrude(height=0.4) text("Player Tokens", size=4, halign="center", valign="top");
     translate([TOKEN_BOX_W/2, 0.4, 7]) rotate([90,180,0]) linear_extrude(height=0.4) text("Lid", size=4, halign="center", valign="top");
+    
+    translate([-CLIP, TOKEN_BOX_D/2, TOKEN_BOX_H-CLIP_STOPPER]) rotate([90, 0, 90]) cliphollow(h=CLIP*3);
+    translate([TOKEN_BOX_W+CLIP, TOKEN_BOX_D/2, TOKEN_BOX_H-CLIP_STOPPER]) rotate([-90, 180, 90]) cliphollow(h=CLIP*3);
 }
-
-
+    //translate([TOKEN_BOX_W/2, 0, TOKEN_BOX_H]) rotate([-90, 180, 0]) clip(h=WALL);
+    //translate([TOKEN_BOX_W/2, TOKEN_BOX_D, TOKEN_BOX_H]) rotate([90, 0, 0]) clip(h=1);
+    //translate([TOKEN_BOX_W/3*2, TOKEN_BOX_D, TOKEN_BOX_H]) rotate([90, 0, 0]) clip(h=WALL);
+    translate([0, TOKEN_BOX_D/2, TOKEN_BOX_H-CLIP_STOPPER]) rotate([90, 0, 90]) clip(h=CLIP);
+    translate([TOKEN_BOX_W, TOKEN_BOX_D/2, TOKEN_BOX_H-CLIP_STOPPER]) rotate([-90, 180, 90]) clip(h=CLIP);

@@ -5,11 +5,7 @@ echo("Player Tokens box (WxDxH):", TOKEN_BOX_W, TOKEN_BOX_D, TOKEN_BOX_H);
 difference() {
     union() {
         cube([TOKEN_BOX_W, TOKEN_BOX_D, TOKEN_BOX_H]);
-        translate([TOKEN_BOX_W/2, 0, TOKEN_BOX_H]) rotate([-90, 0, 0]) cylinder(d=CLIP_DIA, h=WALL);
-        translate([TOKEN_BOX_W/3, TOKEN_BOX_D, TOKEN_BOX_H]) rotate([90, 0, 0]) cylinder(d=CLIP_DIA, h=WALL);
-        translate([TOKEN_BOX_W/3*2, TOKEN_BOX_D, TOKEN_BOX_H]) rotate([90, 0, 0]) cylinder(d=CLIP_DIA, h=WALL);
-        translate([0, TOKEN_BOX_D/2, TOKEN_BOX_H]) rotate([0, 90, 0]) cylinder(d=CLIP_DIA, h=WALL);
-        translate([TOKEN_BOX_W, TOKEN_BOX_D/2, TOKEN_BOX_H]) rotate([0, -90, 0]) cylinder(d=CLIP_DIA, h=WALL);
+
     }
     translate([WALL, WALL, FLOOR]) difference() {
         cube([DELIVERY_STACK_W, DELIVERY_STACK_D, DELIVERY_STACK_H]);
@@ -24,7 +20,14 @@ difference() {
 
     translate([TOKEN_BOX_W/2, 0.4, TOKEN_BOX_H-2]) rotate([90,0,0]) linear_extrude(height=0.4) text("Player Tokens", size=4, halign="center", valign="top");
     translate([TOKEN_BOX_W/2, 0.4, TOKEN_BOX_H-4-4]) rotate([90,0,0]) linear_extrude(height=0.4) text("Base", size=4, halign="center", valign="top");
+    
+        //translate([TOKEN_BOX_W/2, 0, TOKEN_BOX_H]) rotate([-90, 0, 0]) socket(h=CLIP);
+        //#translate([TOKEN_BOX_W/2, TOKEN_BOX_D, TOKEN_BOX_H]) rotate([90, 180, 0]) socket(h=CLIP);
+        //translate([TOKEN_BOX_W/3*2, TOKEN_BOX_D, TOKEN_BOX_H]) rotate([90, 0, 0]) cylinder(d=CLIP_DIA, h=WALL);
+        translate([0, TOKEN_BOX_D/2, TOKEN_BOX_H+CLIP_STOPPER]) rotate([90, 180, 90]) socket(h=CLIP);
+        translate([TOKEN_BOX_W, TOKEN_BOX_D/2, TOKEN_BOX_H+CLIP_STOPPER]) rotate([90, -180, -90]) socket(h=CLIP);
 }
+
 
 
 

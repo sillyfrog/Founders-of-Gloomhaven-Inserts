@@ -1,7 +1,11 @@
+include <clips.scad>;
+
 $fs = 0.5;
+$fn = 100;
 
 FLOOR = 1;
 WALL = 1.5;
+CLIP = 1;
 THIN_WALL = 0.6;
 
 SQUARE_TILE = 27; // 25.46mm
