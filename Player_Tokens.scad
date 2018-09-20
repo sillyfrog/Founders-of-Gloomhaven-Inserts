@@ -1,5 +1,5 @@
 include <consts.scad>;
-
+// Orig size: Player Tokens box (WxDxH):", 54, 62, 14.5
 echo("Player Tokens box (WxDxH):", TOKEN_BOX_W, TOKEN_BOX_D, TOKEN_BOX_H);
 
 difference() {
@@ -7,14 +7,14 @@ difference() {
         cube([TOKEN_BOX_W, TOKEN_BOX_D, TOKEN_BOX_H]);
 
     }
-    translate([WALL, WALL, FLOOR]) difference() {
+    translate([CLIP_WALL, WALL, FLOOR]) difference() {
         cube([DELIVERY_STACK_W, DELIVERY_STACK_D, DELIVERY_STACK_H]);
         // Chunk to stop things getting stuck in corner
         translate([0, DELIVERY_STACK_D - CUBE/2, 0]) cube([CUBE/2, CUBE/2, DELIVERY_STACK_H]);
     }
 
-    translate([WALL*2 + DELIVERY_STACK_W, WALL, TOKEN_BOX_H - MEEPLE_H/2]) cube([MEEPLE_W, MEEPLE_STACK, MEEPLE_H]);
-    translate([WALL*2 + DELIVERY_STACK_W + (MEEPLE_W-TOKEN_STACK)/2, WALL*2 + MEEPLE_STACK, FLOOR]) cube([TOKEN_STACK, SQUARE_TILE, SQUARE_TILE]);
+    translate([CLIP_WALL + WALL + DELIVERY_STACK_W, WALL, TOKEN_BOX_H - MEEPLE_H/2]) cube([MEEPLE_W, MEEPLE_STACK, MEEPLE_H]);
+    translate([CLIP_WALL + WALL + DELIVERY_STACK_W + (MEEPLE_W-TOKEN_STACK)/2, WALL*2 + MEEPLE_STACK, FLOOR]) cube([TOKEN_STACK, SQUARE_TILE, SQUARE_TILE]);
 
     translate([WALL*3 + DELIVERY_STACK_W + MEEPLE_W + CLAIM_DIA/2, WALL, TOKEN_BOX_H]) rotate([-90, 00, 0]) cylinder(d=CLAIM_DIA, h=CLAIM_STACK);
 
