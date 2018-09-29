@@ -6,17 +6,20 @@ module sampleclipsocket() {
     translate([0, 0, 0]) {
         union() {
             clip(1);
-            translate([-6, -10, 0]) cube([12, 10, 1]);
+            //translate([-6, -10, 0]) cube([12, 10, 1]);
+            mirror([0, 1, 0]) clip(1);
         }
     }
-    %cliphollow(2);
+    //%cliphollow(2);
 
-    translate([20, 0, 0]) {
+    rotate([-90, 0, 0]) {
+    translate([20, -13, 0]) {
         difference() {
-            translate([-10, 0, 0]) cube([20, 13, 4]);
-            translate([0, 0, 1]) socket(4);
+            translate([-10, 0, 0]) cube([20, 13, 3]);
+            translate([0, 0, 1.4/2]) socket(1.6);
         }
     }
+}
 }
 
 //sampleclipsocket();
@@ -77,8 +80,8 @@ module socketpolygon() {
     }
 }
 
-module clip(h) {
-    linear_extrude(h) clippolygon();
+module clip(h, scale_width=1) {
+    scale([scale_width, 1, 1]) linear_extrude(h) clippolygon();
 }
 
 
